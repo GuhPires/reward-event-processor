@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "d3e2d988-bf08-48ef-ae16-1537f0430308",
+		"name": "Jolly Challenge",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3720601"
+	},
+	"item": [
+		{
+			"name": "Rules",
+			"item": [
+				{
+					"name": "List All Rules",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/rules",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"rules"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Rule by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/rules/34787f87-dad4-4ce0-af1c-ec1ef706a5fd",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"rules",
+								"34787f87-dad4-4ce0-af1c-ec1ef706a5fd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Rule",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Clock Out on time\",\n    \"eventType\": \"clock_out\",\n    \"condition\": \"metadata.on_time == true\",\n    \"points\": 10\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/rules",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"rules"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Employees",
+			"item": [
+				{
+					"name": "Get All Employees",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/employees",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Employee by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/employees/74fc2351-b16c-4e88-8de3-bf6a434fa1b3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"employees",
+								"74fc2351-b16c-4e88-8de3-bf6a434fa1b3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Event Batch",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n  {\n    \"id\": \"1\",\n    \"employeeId\": \"2daadc6e-22d1-4c54-b67b-a0db668c6585\",\n    \"type\": \"clock_in\",\n    \"timestamp\": \"2025-12-04T08:00:00.000Z\",\n    \"metadata\": { \"on_time\": true }\n  },\n  {\n    \"id\": \"2\",\n    \"employeeId\": \"c84a234d-0bdb-468c-a450-144492387f92\",\n    \"type\": \"clock_in\",\n    \"timestamp\": \"2025-12-04T08:15:00.000Z\",\n    \"metadata\": { \"on_time\": false }\n  },\n  {\n    \"id\": \"3\",\n    \"employeeId\": \"0ac968f2-95a6-4ecf-9b44-491866a869eb\",\n    \"type\": \"clock_out\",\n    \"timestamp\": \"2025-12-04T17:00:00.000Z\",\n    \"metadata\": { \"worked_hours\": 9 }\n  },\n  {\n    \"id\": \"4\",\n    \"employeeId\": \"e7fe5155-5383-4b7e-b966-f85ef68e98fe\",\n    \"type\": \"clock_out\",\n    \"timestamp\": \"2025-12-04T17:30:00.000Z\",\n    \"metadata\": { \"worked_hours\": 9.25 }\n  },\n  {\n    \"id\": \"5\",\n    \"employeeId\": \"74fc2351-b16c-4e88-8de3-bf6a434fa1b3\",\n    \"type\": \"note_added\",\n    \"timestamp\": \"2025-12-04T12:00:00.000Z\",\n    \"metadata\": { \"note\": \"Completed the morning report\" }\n  },\n  {\n    \"id\": \"6\",\n    \"employeeId\": \"2daadc6e-22d1-4c54-b67b-a0db668c6585\",\n    \"type\": \"note_added\",\n    \"timestamp\": \"2025-12-04T14:30:00.000Z\",\n    \"metadata\": { \"note\": \"Reviewed team updates\" }\n  },\n  {\n    \"id\": \"7\",\n    \"employeeId\": \"c84a234d-0bdb-468c-a450-144492387f92\",\n    \"type\": \"clock_in\",\n    \"timestamp\": \"2025-12-05T08:05:00.000Z\"\n  },\n  {\n    \"id\": \"8\",\n    \"employeeId\": \"0ac968f2-95a6-4ecf-9b44-491866a869eb\",\n    \"type\": \"clock_out\",\n    \"timestamp\": \"2025-12-05T17:10:00.000Z\"\n  },\n  {\n    \"id\": \"9\",\n    \"employeeId\": \"e7fe5155-5383-4b7e-b966-f85ef68e98fe\",\n    \"type\": \"note_added\",\n    \"timestamp\": \"2025-12-05T11:45:00.000Z\",\n    \"metadata\": { \"note\": \"Prepared client presentation\" }\n  },\n  {\n    \"id\": \"10\",\n    \"employeeId\": \"74fc2351-b16c-4e88-8de3-bf6a434fa1b3\",\n    \"type\": \"clock_out\",\n    \"timestamp\": \"2025-12-05T08:20:00.000Z\",\n    \"metadata\": { \"on_time\": true }\n  }\n]\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"events"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

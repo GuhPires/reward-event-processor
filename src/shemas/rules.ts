@@ -39,7 +39,7 @@ export const ListRuleSchema = {
 };
 
 export const CreateRuleSchema = {
-  body: { ...RuleBase, required: ["name", "points", "eventType"] },
+  body: { ...RuleBase, required: ["name", "points", "eventType", "condition"] },
   response: {
     201: RuleBase,
   },

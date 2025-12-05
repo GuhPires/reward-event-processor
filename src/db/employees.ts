@@ -1,6 +1,6 @@
 import { Employee } from "../types/employee";
 
-const employees: Employee[] = [
+let employees: Employee[] = [
   {
     id: "2daadc6e-22d1-4c54-b67b-a0db668c6585",
     name: "Renee Hirthe",
@@ -44,4 +44,18 @@ export function getAllEmployees(): Employee[] {
 
 export function getEmployeeById(id: string): Employee | undefined {
   return employees.find((employee) => employee.id === id);
+}
+
+export function updateEmployee(id: string, data: Partial<Employee>): Employee | undefined {
+  const employee = getEmployeeById(id);
+  if (!employee) return;
+  // TODO: add schema validation
+
+  // TODO: shouldn't mutate the object directly...
+  employees = employees.map((employee) => {
+    if (employee.id === id) return { ...employee, ...data };
+    return employee;
+  });
+
+  return { ...employee, ...data };
 }

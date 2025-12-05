@@ -14,10 +14,8 @@ export async function rulesRoutes(app: FastifyInstance) {
     { schema: ListRuleSchema },
     async (req: FastifyRequest<{ Params: { id: string } }>, reply: FastifyReply) => {
       const { id } = req.params;
-      const rule = getRuleById(id);
-      console.log("RULE:", rule);
 
-      return rule ?? reply.code(404).send({ error: "Rule not found" });
+      return getRuleById(id) ?? reply.code(404).send({ error: "Rule not found" });
     }
   );
 

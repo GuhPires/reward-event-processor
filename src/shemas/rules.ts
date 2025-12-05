@@ -5,6 +5,7 @@ export const RuleBase = {
     name: { type: "string" },
     eventType: { type: "string" },
     points: { type: "number" },
+    condition: { type: "string" },
   },
 };
 

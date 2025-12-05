@@ -3,5 +3,5 @@ export interface Rule {
   name: string;
   eventType: string;
   points: number;
-  condition?: Record<string, unknown>;
+  condition: string;
 }
